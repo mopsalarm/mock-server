@@ -64,7 +64,7 @@ class BaseHandler(tornado.web.RequestHandler):
             "remote_ip": self.request.remote_ip,
             "request_time": 1000.0 * self.request.request_time(),
             "headers": self.request.headers,
-            "body": unicode(self.request.body),
+            "body": repr(self.request.body)[:1024*16],
             "time": datetime.datetime.now().isoformat()
         }
 
